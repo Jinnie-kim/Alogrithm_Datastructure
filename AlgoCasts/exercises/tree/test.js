@@ -43,7 +43,7 @@ describe.skip('Tree', () => {
     t.root.add('c');
     t.root.children[0].add('d');
 
-    t.traverseBF(node => {
+    t.traverseBF((node) => {
       letters.push(node.data);
     });
 
@@ -58,7 +58,7 @@ describe.skip('Tree', () => {
     t.root.add('d');
     t.root.children[0].add('c');
 
-    t.traverseDF(node => {
+    t.traverseDF((node) => {
       letters.push(node.data);
     });
 
