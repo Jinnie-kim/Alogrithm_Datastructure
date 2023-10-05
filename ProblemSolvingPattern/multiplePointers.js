@@ -46,6 +46,11 @@ function countUniqueValues(arr) {
   let uniqueValueCounts = 0;
 
   for (let i = 0; i < arr.length; i++) {
+    // console.log('arr[i]', arr[i]);
+    // console.log('arr[i + 1]', arr[i + 1]);
+    // console.log('--------------------');
+    // arr[i + 1]이 결국 마지막에서는 undefined를 나타내기 때문에
+    // 좋은 비교 방법이라고 할 수 없다고 생각한다.
     if (arr[i] !== arr[i + 1]) uniqueValueCounts++;
   }
 
@@ -61,13 +66,13 @@ function countUniqueValuesRefactored(arr) {
 
   for (let j = 1; j < arr.length; j++) {
     if (arr[i] !== arr[j]) {
-      i++;
+      i++; // move to next index to store unique value(=== arr[j])
       arr[i] = arr[j];
       console.log(arr);
     }
     console.log(i, j);
   }
-  return i + 1;
+  return i + 1; // i is index so you have to increment 1.
 }
 
 console.log(countUniqueValuesRefactored([-2, -1, -1, 0, 1]));
