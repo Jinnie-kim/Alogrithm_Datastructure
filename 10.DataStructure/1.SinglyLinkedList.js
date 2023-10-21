@@ -123,6 +123,19 @@ class SinglyLinkedList {
 
     return true;
   }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+
+    let preNode = this.get(index - 1);
+    let removeNode = preNode.next;
+    preNode.next = removeNode.next;
+    this.length--;
+
+    return removeNode;
+  }
 }
 
 let list = new SinglyLinkedList();
