@@ -28,4 +28,23 @@ class DoublyLinkedList {
 
     return this;
   }
+
+  pop() {
+    if (!this.length) return undefined;
+
+    let lastNode = this.tail;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = lastNode.prev;
+      this.tail.next = null;
+      lastNode.prev = next;
+    }
+
+    this.length--;
+
+    return lastNode;
+  }
 }
